@@ -4,7 +4,7 @@
 
 > *Never forget your name, ID, or point again.*
 
-[Try MailMate](https://mailmate.app) · [Follow on X](https://x.com/MailMateApp)
+[Try MailMate](cooming soon!) · [Follow on X](https://x.com/Mailmatesa)
 
 ---
 
