@@ -1,0 +1,48 @@
+.container {
+
+
+    justify-content: center;
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+nav {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
+}
+.logoIcon {
+    height: 60px;
+    width: 60px;
+    color: #82BEE6;
+    cursor: pointer;
+}
+
+.logoText {
+    font-size: 48px;
+    color: #82BEE6;
+}
+
+navLinks {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+
+.icons {
+    width: 45px;
+    height: 45px;
+    color: #82BEE6;
+    border: 1px solid #232B64;
+    border-radius: 25%;
+    padding: 2px;
+    margin: 3px;
+    cursor: pointer;
+}
