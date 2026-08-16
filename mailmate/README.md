@@ -1,16 +1,41 @@
-# React + Vite
+# MailMate
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+MailMate is a web application designed to help university students draft polite, structured, and context-appropriate academic emails to professors and university staff.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Structured Input Form:** Collects essential academic context including student name, student ID, course details, recipient, email purpose, and tone.
+- **AI-Powered Draft Generation:** Generates contextual academic email drafts based on selected parameters.
+- **Live Draft Editor & Preview:** Allows reviewing and editing generated emails before sending.
+- **One-Click Clipboard Copy:** Quick export to clipboard for pasting into email clients.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **Frontend:** React (Vite)
+- **Styling:** CSS / Tailwind CSS
+- **State Management:** React Hooks (`useState`)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 18.x or higher recommended)
+- npm (Node Package Manager)
+
+Install dependencies:
+
+Bash
+npm install
+
+Start the development server:
+
+Bash
+npm run dev
+
+Open your browser and navigate to http://localhost:5173.
