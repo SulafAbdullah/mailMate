@@ -1,57 +1,60 @@
 // src/constants/formOptions.js
 
-/**
- * Tone options available for email generation.
- * Each tone provides a short description to guide the AI prompt later.
- */
-export const TONE_OPTIONS = [
-  {
-    id: 'formal_polite',
-    label: 'Formal & Respectful',
-    description: 'Standard academic etiquette for professors and department heads.',
-  },
-  {
-    id: 'urgent',
-    label: 'Time-Sensitive / Urgent',
-    description: 'Direct and prompt for impending deadlines or immediate schedule conflicts.',
-  },
-  {
-    id: 'inquiry',
-    label: 'Inquiry / Question',
-    description: 'Polite and focused on asking for clarification or feedback.',
-  },
-  {
-    id: 'apologetic',
-    label: 'Apologetic / Notice',
-    description: 'Professional explanation for absences, missed deadlines, or unforeseen circumstances.',
-  },
-];
+// src/constants/formOptions.js
 
-/**
- * Common academic email categories and reasons.
- */
-export const EMAIL_REASONS = [
-  'Assignment Extension Request',
-  'Office Hours / Meeting Appointment',
-  'Grade & Feedback Clarification',
-  'Absence / Medical Leave Notification',
-  'Letter of Recommendation Request',
-  'Exam Conflict / Rescheduling Inquiry',
-  'Course Registration / Prerequisite Override',
-  'General Question / Other',
-];
+export const TONE_OPTIONS = {
+  en: [
+    { id: 'formal', label: 'Formal & Respectful' },
+    { id: 'urgent', label: 'Time-Sensitive / Urgent' },
+    { id: 'inquiry', label: 'Inquiry / Question' },
+    { id: 'apologetic', label: 'Apologetic / Notice' },
+  ],
+  ar: [
+    { id: 'formal', label: 'رسمي ومهذب' },
+    { id: 'urgent', label: 'عاجل / ذو أهمية زمنية' },
+    { id: 'inquiry', label: 'استفسار وتوضيح' },
+    { id: 'apologetic', label: 'اعتذار / إشعار غياب' },
+  ],
+};
 
-/**
- * Helper templates / default placeholders based on selected reason.
- * Useful for giving students hints on what context to include.
- */
+export const EMAIL_REASONS = {
+  en: [
+    'Assignment Extension Request',
+    'Office Hours / Meeting Appointment',
+    'Grade & Feedback Clarification',
+    'Absence / Medical Leave Notification',
+    'Letter of Recommendation Request',
+    'Exam Conflict / Rescheduling Inquiry',
+    'General Question / Other',
+  ],
+  ar: [
+    'طلب تمديد موعد تسليم التكليف',
+    'حجز موعد خلال الساعات المكتبية',
+    'استفسار وتوضيح حول الدرجة / التقييم',
+    'إشعار بالغياب / عذر طبي',
+    'طلب خطاب توصية (تزكية)',
+    'تعارض في مواعيد الاختبارات',
+    'سؤال عام / استفسار آخر',
+  ],
+};
+
 export const REASON_HINTS = {
-  'Assignment Extension Request': 'Mention the specific assignment name, original due date, proposed new deadline, and reason for delay.',
-  'Office Hours / Meeting Appointment': 'State your preferred days/times and 1-2 specific topics or questions you want to discuss.',
-  'Grade & Feedback Clarification': 'Mention the exam/assignment name and specific questions or rubrics you would like to review together.',
-  'Absence / Medical Leave Notification': 'State the date(s) of absence, class topic missed, and note if medical documentation is attached.',
-  'Letter of Recommendation Request': 'Include target program/scholarship, deadline, relevant course grades, and attached CV/resume.',
-  'Exam Conflict / Rescheduling Inquiry': 'Specify the conflicting exam dates, course names, and relevant university scheduling policies.',
-  'Course Registration / Prerequisite Override': 'Include section numbers, prerequisites completed, and graduation timeline context.',
-  'General Question / Other': 'Summarize your core question clearly in 1-2 sentences.',
+  en: {
+    'Assignment Extension Request': 'Mention the specific assignment name, original due date, proposed new deadline, and reason.',
+    'Office Hours / Meeting Appointment': 'State your preferred days/times and 1-2 specific questions to discuss.',
+    'Grade & Feedback Clarification': 'Mention the assessment name and specific points you would like to review.',
+    'Absence / Medical Leave Notification': 'State the date(s) of absence, class topic, and note if medical report is attached.',
+    'Letter of Recommendation Request': 'Include target program/scholarship and upcoming deadline.',
+    'Exam Conflict / Rescheduling Inquiry': 'Specify the conflicting courses and dates.',
+    'General Question / Other': 'Summarize your core question in 1-2 sentences.',
+  },
+  ar: {
+    'طلب تمديد موعد تسليم التكليف': 'اذكر اسم التكليف، الموعد الأصلي، الموعد المقترح للتسليم، وسبب التأخير.',
+    'حجز موعد خلال الساعات المكتبية': 'حدد الأيام والأوقات المناسبة لك وموضوع النقاش باختصار.',
+    'استفسار وتوضيح حول الدرجة / التقييم': 'اذكر اسم الاختبار أو التكليف والنقاط التي تود مراجعتها.',
+    'إشعار بالغياب / عذر طبي': 'اذكر تاريخ الغياب، المحاضرة، وهل أرفقت التقرير الطبي.',
+    'طلب خطاب توصية (تزكية)': 'اذكر الجهة أو البرنامج الأكاديمي المستهدف وموعد التقديم النهائي.',
+    'تعارض في مواعيد الاختبارات': 'حدد المقررات المتعارضة ومواعيد الاختبارات.',
+    'سؤال عام / استفسار آخر': 'لخص استفسارك بوضوح في جملة أو جملتين.',
+  },
 };

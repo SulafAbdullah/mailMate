@@ -2,7 +2,7 @@
 // src/components/DraftPreview.jsx
 import { useState, useEffect } from 'react';
 
-export default function DraftPreview({ draft, isLoading, error }) {
+export default function DraftPreview({ draft, isLoading, error, t }) {
   const [editableDraft, setEditableDraft] = useState(draft);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -25,8 +25,8 @@ export default function DraftPreview({ draft, isLoading, error }) {
     <section className="bg-white p-6 rounded-xl border border-slate-200 shadow-xs flex flex-col h-full min-h-[480px]">
       <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
         <div>
-          <h2 className="text-base font-semibold text-slate-900">Generated Draft</h2>
-          <p className="text-xs text-slate-500">Review or edit before copying.</p>
+          <h2 className="text-base font-semibold text-slate-900">{t.draftTitle}</h2>
+          <p className="text-xs text-slate-500">{t.draftSubtitle}</p>
         </div>
 
         {editableDraft && (
@@ -40,7 +40,7 @@ export default function DraftPreview({ draft, isLoading, error }) {
                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
-            {isCopied ? 'Copied to Clipboard' : 'Copy Email'}
+            {isCopied ? t.copiedBtn : t.copyBtn}
           </button>
         )}
       </div>
@@ -53,20 +53,22 @@ export default function DraftPreview({ draft, isLoading, error }) {
 
       {isLoading ? (
         <div className="flex-1 flex flex-col items-center justify-center gap-3 text-slate-400 py-12">
-        <div className="w-6 h-6 border-2 border-brand border-t-transparent rounded-full animate-spin"></div>          <p className="text-xs">Generating formal draft...</p>
+          <div className="w-6 h-6 border-2 border-brand border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-xs">{t.loadingDraft}</p>
         </div>
       ) : editableDraft ? (
         <textarea
-        className="w-full flex-1 rounded-md border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed text-slate-800 font-mono resize-none focus:outline-hidden focus:ring-1 focus:ring-brand"
-        value={editableDraft}
-        onChange={(e) => setEditableDraft(e.target.value)}
-        rows={16}
-        aria-label="Generated email draft"
+          className="w-full flex-1 rounded-md border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed text-slate-800 font-mono resize-none focus:outline-hidden focus:ring-1 focus:ring-brand"
+          value={editableDraft}
+          onChange={(e) => setEditableDraft(e.target.value)}
+          rows={16}
+          dir="auto"
+          aria-label="Generated email draft"
         />
       ) : (
         <div className="flex-1 flex flex-col items-center justify-center text-center p-8 text-slate-400 border border-dashed border-slate-200 rounded-lg">
           <p className="text-xs max-w-xs">
-            Fill in your email details on the left and click <strong>Generate Email</strong> to see your draft here.
+            {t.placeholderEmpty}
           </p>
         </div>
       )}

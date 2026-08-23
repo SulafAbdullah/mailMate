@@ -1,5 +1,7 @@
 // this file is responsible for interacting with the OpenRouter API to generate academic emails based on user input.
 
+// src/services/ai.js
+
 const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
 
 export async function generateAcademicEmail(formData) {
@@ -7,26 +9,26 @@ export async function generateAcademicEmail(formData) {
     throw new Error('API key missing. Please add VITE_OPENROUTER_API_KEY to your .env.local file.');
   }
 
-  // System prompt enclosed in template literals (backticks)
   const systemPrompt = `You are an expert academic advisor and university communication specialist.
-Your task is to write a polite, concise, and professionally structured academic email from a student to a professor/instructor based on the provided inputs.
+Your task is to write a polite, concise, and professionally structured academic email from a university student to a professor or instructor.
 
-### Instructions & Structure:
-1. **Subject Line**: Must follow the exact format: Subject: [Course] - [Specific Purpose] - [Student Name] ([Student ID])
-2. **Salutation**: Use formal academic titles (Dear Professor [Last Name] or Dear Dr. [Last Name]). If the title is unknown, default to Dear Professor [Last Name].
-3. **Opening**: Introduce the student (Name, ID, Course/Section) and state the email's primary objective within the first two sentences.
-4. **Body (1–2 concise paragraphs)**:
-   - Provide necessary context concisely.
-   - Include a clear call-to-action (e.g., requesting an appointment, clarification, or extension) only if asked.
-5. **Sign-off**: Include a polite closing (Best regards, or Sincerely,) followed by the full student signature block (Name, Student ID, Course).
+### Language & Formatting Guidelines:
+1. **Target Language**: Write the entire email in the requested Language (${formData.language}).
+   - **For English**:
+     - Subject Line: Subject: [Course] - [Specific Purpose] - [Student Name] ([Student ID])
+     - Salutation: Dear Professor [Last Name] / Dear Dr. [Last Name]
+     - Sign-off: Best regards / Sincerely, followed by student signature block.
+   - **For Arabic (العربية)**:
+     - Subject Line: الموضوع: [اسم أو رمز المقرر] - [الهدف من الرسالة] - [اسم الطالب/ـة] ([الرقم الجامعي])
+     - Salutation: سعادة الدكتور / الأستاذ الفاضل [الاسم الأخير]، حفظه الله / السلام عليكم ورحمة الله وبركاته
+     - Sign-off: شاكر ومقدر لحسن تعاونكم / وتفضلوا بقبول فائق الاحترام والتقدير، followed by student signature block (الاسم، الرقم الجامعي، المقرر).
 
-### Constraints:
-- Keep the body under 150 words.
-- Adapt strictly to the specified tone while preserving professional academic etiquette.
-- Do not invent non-existent course policies or dates; if a detail is missing, omit it or use an intuitive placeholder.
-- Output ONLY the raw email text (starting directly from "Subject:"). Do not include meta-text, markdown backticks, or intro/outro commentary.`;
+### General Constraints:
+- Keep the body concise (under 150 words).
+- Adapt strictly to the requested tone (${formData.tone}) while preserving high academic decorum and respect.
+- Do not make up non-existent course policies or dates.
+- Output ONLY the raw final email starting directly with the Subject/الموضوع line. Do not include markdown code fences, meta-commentary, or introductory remarks.`;
 
-  // User prompt properly enclosed in backticks
   const userPrompt = `Student Information:
 - Student Name: ${formData.studentName}
 - Student ID: ${formData.studentId}
@@ -34,6 +36,7 @@ Your task is to write a polite, concise, and professionally structured academic 
 - Course: ${formData.courseName}
 - Purpose: ${formData.reasonType}
 - Desired Tone: ${formData.tone}
+- Language: ${formData.language}
 - Context & Details: ${formData.customDetails}`;
 
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
