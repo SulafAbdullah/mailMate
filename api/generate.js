@@ -32,7 +32,10 @@ Your task is to write a polite, concise, and professionally structured academic 
 ### General Constraints:
 - Keep the body concise (under 150 words).
 - Adapt strictly to the requested tone (${tone}) while preserving high academic decorum.
-- Output ONLY the raw final email starting directly with the Subject/الموضوع line.`;
+- Output ONLY the raw final email starting directly with the Subject/الموضوع line.
+- dont ADD any ([insert number, e.g., 48 hours])  put an estimated time frame in the email.
+-  dont include any explanations, disclaimers, or additional text outside of the email content if not ask, dont come up with details not provided by the user.`;
+
 
   const userPrompt = `Student Information:
 - Student Name: ${studentName}
