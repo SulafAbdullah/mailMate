@@ -3,6 +3,8 @@
 
 @theme {
   --color-brand: #219ebc;
-  --color-brand-hover: #1b859f;
-  --color-brand-light: #e8f5f8;
+  --color-brand-hover: #1b859f; /* Blue - primary color */
+  --color-brand-light: #e8f5f8; /* Light Blue - secondary color */
+  --color-brand-lighter: #f5fbfc;/* white smoke - secondary color */
+  --color-brand-dark: #010B13;/* Dark Blue - accent color */
 }

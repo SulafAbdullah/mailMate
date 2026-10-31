@@ -28,6 +28,9 @@ export const TRANSLATIONS = {
     copiedBtn: 'Copied to Clipboard!',
     placeholderEmpty: 'Fill in your email details on the left and click Generate Email to see your draft here.',
     loadingDraft: 'Structuring your academic email...',
+    contactUs: 'Contact us',
+    createdBy: 'created by SupermodelEng',
+    copyright: '© 2026 MailMate. All rights reserved.',
   },
   ar: {
     appTitle: 'MailMate',
@@ -55,5 +58,8 @@ export const TRANSLATIONS = {
     copiedBtn: 'تم النسخ بنجاح!',
     placeholderEmpty: 'املأ البيانات على اليمين واضغط إنشاء الإيميل لعرض المسودة هنا.',
     loadingDraft: 'جارِ صياغة الإيميل بالأسلوب الأكاديمي...',
+    contactUs: 'تواصل معنا',
+    createdBy: 'تم الإنشاء بواسطة SupermodelEng',
+    copyright: '© 2026 MailMate. جميع الحقوق محفوظة.',
   },
 };
