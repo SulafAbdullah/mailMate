@@ -2,6 +2,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-brand: 'Inter', sans-serif;
   --color-brand: #219ebc;
   --color-brand-hover: #1b859f; /* Blue - primary color */
   --color-brand-light: #e8f5f8; /* Light Blue - secondary color */
