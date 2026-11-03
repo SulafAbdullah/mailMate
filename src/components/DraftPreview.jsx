@@ -1,6 +1,8 @@
 // this component is responsible for rendering the draft preview.
 // src/components/DraftPreview.jsx
 import { useState, useEffect } from 'react';
+ 
+
 
 export default function DraftPreview({ draft, isLoading, error, t }) {
   const [editableDraft, setEditableDraft] = useState(draft);
