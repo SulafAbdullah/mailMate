@@ -1,3 +1,6 @@
+// src/services/supabaseClient.js
+// This file initializes the Supabase client using environment variables for the URL and anon key.
+
 import { createClient } from '@supabase/supabase-js';
 
 console.log("Supabase URL:", import.meta.env.VITE_SUPABASE_URL);

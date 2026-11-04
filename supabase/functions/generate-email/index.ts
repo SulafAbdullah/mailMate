@@ -1,11 +1,13 @@
 // Setup type definitions for Deno runtime in TypeScript
 // <reference types="https://esm.sh/@supabase/functions-js/src/edge-runtime.d.ts" />
+//this file is used to generate an academic email draft based on user input using OpenRouter API.
 
+// CORS headers to allow requests from any origin
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
-
+// Handle incoming requests to the function
 Deno.serve(async (req: Request) => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -52,6 +54,8 @@ You are an expert academic advisor and university communication specialist.
 // -  dont include any explanations, disclaimers, or additional text outside of the email content if not ask, dont come up with details not provided by the user.
 // use simple and clear language, avoid complex or flowery expressions..`;
 
+
+// Make a POST request to the OpenRouter API with the constructed prompt
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {

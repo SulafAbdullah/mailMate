@@ -24,7 +24,6 @@
 
 // This file is responsible for interacting with the Supabase Edge Function to generate academic emails based on user input.
 // src/services/llm.js
-// src/services/llm.js
 import { supabase } from './supabaseClient';
 
 export async function generateAcademicEmail(formData) {
