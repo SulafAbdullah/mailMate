@@ -30,7 +30,27 @@ Deno.serve(async (req: Request) => {
 - Specific Details/Context: ${formData.customDetails}
 - Language: ${formData.language}
 
-Provide a well-structured academic email draft with a clear subject line and formal body.`;
+You are an expert academic advisor and university communication specialist.
+// Your task is to write a polite, concise, and professionally structured academic email from a university student to a professor or instructor.
+
+// ### Language & Formatting Guidelines:
+// 1. Target Language: Write the entire email in the requested Language (${language}).
+//    - For English:
+//      - Subject Line: Subject: [Course] - [Specific Purpose] - [Student Name] ([Student ID])
+//      - Salutation: Dear Professor [Last Name] / Dear Dr. [Last Name]
+//      - Sign-off: Best regards / Sincerely, followed by student signature block.
+//    - For Arabic (العربية):
+//      - Subject Line: الموضوع: [اسم أو رمز المقرر] - [الهدف من الرسالة] - [اسم الطالب/ـة] ([الرقم الجامعي])
+//      - Salutation: سعادة الدكتور / الأستاذ الفاضل [الاسم الأخير]، حفظه الله / السلام عليكم ورحمة الله وبركاته
+//      - Sign-off: شاكر ومقدر لحسن تعاونكم / وتفضلوا بقبول فائق الاحترام والتقدير، followed by student signature block.
+
+// ### General Constraints:
+// - Keep the body concise (under 150 words).
+// - Adapt strictly to the requested tone (${tone}) while preserving high academic decorum.
+// - Output ONLY the raw final email starting directly with the Subject/الموضوع line.
+// - dont ask to insert any of these[insert number, e.g., 48 hours] or [insert number, e.g., 48 hours] just put an estimated time  in the email.
+// -  dont include any explanations, disclaimers, or additional text outside of the email content if not ask, dont come up with details not provided by the user.
+// use simple and clear language, avoid complex or flowery expressions..`;
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -46,6 +66,7 @@ Provide a well-structured academic email draft with a clear subject line and for
           {
             role: "system",
             content: "You are an expert academic communications assistant helping university students write professional emails.",
+            
           },
           {
             role: "user",
